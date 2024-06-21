@@ -16,9 +16,9 @@ public class MyRunner implements CommandLineRunner {
     @Autowired
     private UtenteService utenteService;
     @Autowired
-    private PostazioneService postazioneService;
-    @Autowired
     private EdificioService edificioService;
+    @Autowired
+    private PostazioneService postazioneService;
     @Override
     public void run(String... args) throws Exception {
         System.out.println("runner");
@@ -30,18 +30,6 @@ public class MyRunner implements CommandLineRunner {
         //utenteService.saveUtente(utente2);
         //utenteService.saveUtente(utente3);
 
-        Postazione postazione1 = new Postazione("ufficio luminoso", TipoPostazione.OPENSPACE, 42, );
-        Postazione postazione2 = new Postazione("sala silenziosa", TipoPostazione.SALA_RIUNIONI, 15, );
-        Postazione postazione3 = new Postazione("cubicolo accogliente", TipoPostazione.PRIVATO, 3, );
-        Postazione postazione4 = new Postazione("rilassante spazio condiviso", TipoPostazione.OPENSPACE, 35, );
-        Postazione postazione5 = new Postazione("sala spaziosa", TipoPostazione.SALA_RIUNIONI, 25, );
-
-        postazioneService.savePostazione(postazione1);
-        postazioneService.savePostazione(postazione2);
-        postazioneService.savePostazione(postazione3);
-        postazioneService.savePostazione(postazione4);
-        postazioneService.savePostazione(postazione5);
-
         Edificio edificio1 = new Edificio("Open Studio", "via Roma, 10", "Milano");
         Edificio edificio2 = new Edificio("Uffici Generali", "piazza Dante, 2", "Roma");
         Edificio edificio3 = new Edificio("Casa Ghianda", "viale Liberazione, 123", "Firenze");
@@ -49,6 +37,18 @@ public class MyRunner implements CommandLineRunner {
         //edificioService.saveEdificio(edificio1);
         //edificioService.saveEdificio(edificio2);
         //edificioService.saveEdificio(edificio3);
+
+        Postazione postazione1 = new Postazione("ufficio luminoso", TipoPostazione.OPENSPACE, 42, edificio3 );
+        Postazione postazione2 = new Postazione("sala silenziosa", TipoPostazione.SALA_RIUNIONI, 15, edificio3 );
+        Postazione postazione3 = new Postazione("cubicolo accogliente", TipoPostazione.PRIVATO, 3,edificio1 );
+        Postazione postazione4 = new Postazione("rilassante spazio condiviso", TipoPostazione.OPENSPACE, 35, edificio2);
+        Postazione postazione5 = new Postazione("sala spaziosa", TipoPostazione.SALA_RIUNIONI, 25, edificio2 );
+
+        postazioneService.savePostazione(postazione1);
+        postazioneService.savePostazione(postazione2);
+        postazioneService.savePostazione(postazione3);
+        postazioneService.savePostazione(postazione4);
+        postazioneService.savePostazione(postazione5);
 
     }
 }
