@@ -14,5 +14,6 @@ public class UtenteService {
     }
     public void saveUtente(Utente utente) {
         utenteRepository.save(utente);
+        System.out.println("Nuovo utente " + utente + " salvato.");
     }
 }

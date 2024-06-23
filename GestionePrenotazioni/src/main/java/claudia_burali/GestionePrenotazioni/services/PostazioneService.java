@@ -5,6 +5,8 @@ import claudia_burali.GestionePrenotazioni.repositories.PostazioneRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class PostazioneService {
@@ -14,5 +16,10 @@ public class PostazioneService {
     }
     public void savePostazione(Postazione postazione) {
         postazioneRepository.save(postazione);
+        System.out.println("Nuova postazione " + postazione + " salvata.");
+    }
+    private List<Postazione> findAllPostazioni(){
+        return
+                postazioneRepository.findAll();
     }
 }

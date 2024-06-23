@@ -14,5 +14,7 @@ public class PrenotazioneService {
     }
     public void savePrenotazione(Prenotazione prenotazione) {
         prenotazioneRepository.save(prenotazione);
+        System.out.println("Nuova prenotazione " + prenotazione + " aggiunta.");
     }
+
 }
