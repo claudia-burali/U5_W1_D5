@@ -1,6 +1,5 @@
 package claudia_burali.GestionePrenotazioni.entities;
 
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+
 public class Edificio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +26,16 @@ public class Edificio {
         this.nome = nome;
         this.indirizzo = indirizzo;
         this.citta = citta;
+    }
+
+    @Override
+    public String toString() {
+        return "Edificio{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", citta='" + citta + '\'' +
+                '}';
     }
 }
 

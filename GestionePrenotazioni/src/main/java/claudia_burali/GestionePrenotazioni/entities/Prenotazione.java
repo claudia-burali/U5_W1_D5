@@ -31,5 +31,6 @@ public class Prenotazione {
         this.utente = utente;
         this.dataPrenotazione = dataPrenotazione;
     }
+
 }
 

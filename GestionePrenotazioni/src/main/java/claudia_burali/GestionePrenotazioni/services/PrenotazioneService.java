@@ -2,19 +2,23 @@ package claudia_burali.GestionePrenotazioni.services;
 
 import claudia_burali.GestionePrenotazioni.entities.Prenotazione;
 import claudia_burali.GestionePrenotazioni.repositories.PrenotazioneRepository;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-@Slf4j
 public class PrenotazioneService {
-    private final PrenotazioneRepository prenotazioneRepository;
-    public PrenotazioneService(PrenotazioneRepository prenotazioneRepository) {
-        this.prenotazioneRepository = prenotazioneRepository;
-    }
+    @Autowired
+    private PrenotazioneRepository prenotazioneRepository;
     public void savePrenotazione(Prenotazione prenotazione) {
+
+        /*List<Prenotazione> prenotazionePresente = prenotazioneRepository.findByUsername_UtenteEDataPrenotazione(prenotazione.getUtente().getUsername(), prenotazione.getDataPrenotazione());
+        if (!prenotazionePresente.isEmpty()){
+             throw new RuntimeException("Impossibile prenotare, postazione occupata.");
+        }*/
+
         prenotazioneRepository.save(prenotazione);
         System.out.println("Nuova prenotazione " + prenotazione + " aggiunta.");
-    }
-
+        }
 }

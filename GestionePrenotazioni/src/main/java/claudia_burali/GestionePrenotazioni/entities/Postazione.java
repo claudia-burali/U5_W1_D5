@@ -10,7 +10,7 @@ import java.util.List;
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
+
 public class Postazione {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,4 +36,14 @@ public class Postazione {
         this.edificio = edificio;
     }
 
+    @Override
+    public String toString() {
+        return "Postazione{" +
+                "edificio=" + edificio +
+                ", maxOccupanti=" + maxOccupanti +
+                ", tipo=" + tipo +
+                ", descrizione='" + descrizione + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }
